@@ -1,47 +1,72 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meciuri - Progresul Hălmagiu</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meciuri - Progresul Hălmagiu</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
+  <header>
+    <h1>PROGRESUL HĂLMAGIU</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Acasă</a></li>
+        <li><a href="echipa.html">Echipă</a></li>
+        <li><a href="meciuri.html">Meciuri</a></li>
+        <li><a href="galerie.html">Galerie</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <header>
-        <h1>PROGRESUL HĂLMAGIU</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Acasă</a></li>
-                <li><a href="echipa.html">Echipă</a></li>
-                <li><a href="meciuri.html">Meciuri</a></li>
-                <li><a href="galerie.html">Galerie</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <section id="meciuri">
+    <h2><i class="fas fa-futbol"></i> Meciuri și Rezultate</h2>
+    <p>Pentru meciuri, scoruri și clasamente actualizate, vizitează pagina oficială SofaScore:</p>
+    <a href="https://www.sofascore.ro/ro/echipa/fotbal/cs-progresul-halmagiu/490278"
+       target="_blank" class="btn">Vezi Meciurile pe SofaScore</a>
 
-    <section id="meciuri">
-        <h2><i class="fas fa-futbol"></i> Meciuri și Rezultate</h2>
-        <p>Pentru meciuri, scoruri și clasamente actualizate, vizitează pagina oficială SofaScore:</p>
+    <div class="match-card" id="urmatorul-meci">
+      <h3>Următorul Meci</h3>
+      <p>Se încarcă...</p>
+    </div>
+  </section>
 
-        <a href="https://www.sofascore.ro/ro/echipa/fotbal/cs-progresul-halmagiu/490278" 
-           target="_blank" class="btn">
-            Vezi Meciurile pe SofaScore
-        </a>
+  <footer>
+    <p>&copy; 2025 Progresul Hălmagiu. Toate drepturile rezervate.</p>
+  </footer>
 
-        <div class="match-card">
-            <h3>Următorul Meci</h3>
-            <p><strong>Progresul Hălmagiu</strong> vs <strong>CS Victoria</strong></p>
-            <p>Data: 13 aprilie 2025 | Ora: 17:00</p>
-            <p>Locație: Stadion Hălmagiu</p>
-        </div>
-    </section>
+  <script>
+    const meciuri = [
+      { data: "2025-04-27T17:00", echipe: "ACS Vârfurile vs Progresul Hălmagiu", locatie: "Vârfurile" },
+      { data: "2025-05-04T17:00", echipe: "Progresul Hălmagiu vs Unirea Gurahonț", locatie: "Hălmagiu" },
+      { data: "2025-05-11T18:00", echipe: "Viitorul Șepreuș vs Progresul Hălmagiu", locatie: "Șepreuș" },
+      { data: "2025-05-18T18:00", echipe: "Progresul Hălmagiu vs Voința Sintea Mare", locatie: "Hălmagiu" },
+      { data: "2025-05-25T18:00", echipe: "Cetate Dezna vs Progresul Hălmagiu", locatie: "Dezna" },
+      { data: "2025-06-01T18:00", echipe: "Progresul Hălmagiu vs Viitorul Satu Nou", locatie: "Hălmagiu" },
+      { data: "2025-06-08T18:00", echipe: "Crișul Alb Buteni vs Progresul Hălmagiu", locatie: "Buteni" }
+    ];
 
-    <footer>
-        <p>&copy; 2025 Progresul Hălmagiu. Toate drepturile rezervate.</p>
-    </footer>
+    const acum = new Date();
 
+    const urmator = meciuri.find(meci => new Date(meci.data) > acum);
+
+    const container = document.getElementById("urmatorul-meci");
+
+    if (urmator) {
+      const dataMeci = new Date(urmator.data);
+      const options = { day: "2-digit", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit" };
+
+      container.innerHTML = `
+        <h3>Următorul Meci</h3>
+        <p><strong>${urmator.echipe}</strong></p>
+        <p>Data: ${dataMeci.toLocaleDateString("ro-RO", options)}</p>
+        <p>Locație: ${urmator.locatie}</p>
+      `;
+    } else {
+      container.innerHTML = "<h3>Următorul Meci</h3><p>Nu există meciuri programate.</p>";
+    }
+  </script>
 </body>
 </html>
