@@ -1,32 +1,157 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galerie - Progresul Hălmagiu</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galerie - Progresul Hălmagiu</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Galerie Grid */
+    .galerie-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin: 2rem 0;
+    }
+    .galerie-grid img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .galerie-grid img:hover {
+      transform: scale(1.05);
+    }
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .lightbox.active {
+      display: flex;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 8px;
+    }
+    .lightbox .close,
+    .lightbox .prev,
+    .lightbox .next {
+      position: absolute;
+      background: rgba(255,255,255,0.8);
+      border: none;
+      padding: 10px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: background 0.2s;
+    }
+    .lightbox .close:hover,
+    .lightbox .prev:hover,
+    .lightbox .next:hover {
+      background: rgba(255,255,255,1);
+    }
+    .lightbox .close {
+      top: 20px; right: 20px;
+    }
+    .lightbox .prev {
+      left: 20px; top: 50%; transform: translateY(-50%);
+    }
+    .lightbox .next {
+      right: 20px; top: 50%; transform: translateY(-50%);
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Progresul Hălmagiu</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Acasă</a></li>
-                <li><a href="echipa.html">Echipă</a></li>
-                <li><a href="meciuri.html">Meciuri</a></li>
-                <li><a href="galerie.html">Galerie</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <section id="galerie">
-        <h2>Galerie</h2>
-        <p>Imaginile și videoclipurile vor fi disponibile aici în curând!</p>
-    </section>
-    
-    <footer>
-        <p>&copy; 2025 Progresul Hălmagiu. Toate drepturile rezervate.</p>
-    </footer>
+  <header>
+    <h1>Progresul Hălmagiu</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Acasă</a></li>
+        <li><a href="echipa.html">Echipă</a></li>
+        <li><a href="meciuri.html">Meciuri</a></li>
+        <li><a href="galerie.html">Galerie</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="galerie" class="container">
+    <h2>Galerie Foto</h2>
+    <p>Explorați momentele noastre de neuitat din meciuri și antrenamente.</p>
+
+    <div class="galerie-grid">
+      <img src="images/gallery1.jpg" alt="Meci 1" data-index="0">
+      <img src="images/gallery2.jpg" alt="Meci 2" data-index="1">
+      <img src="images/gallery3.jpg" alt="Meci 3" data-index="2">
+      <img src="images/gallery4.jpg" alt="Meci 4" data-index="3">
+      <img src="images/gallery5.jpg" alt="Meci 5" data-index="4">
+      <img src="images/gallery6.jpg" alt="Meci 6" data-index="5">
+      <img src="images/gallery7.jpg" alt="Meci 7" data-index="6">
+      <img src="images/gallery8.jpg" alt="Meci 8" data-index="7">
+      <img src="images/gallery9.jpg" alt="Meci 9" data-index="8">
+      <img src="images/gallery10.jpg" alt="Meci 10" data-index="9">
+    </div>
+
+    <div id="lightbox" class="lightbox">
+      <button class="close">&times;</button>
+      <button class="prev">&#10094;</button>
+      <img src="" alt="">
+      <button class="next">&#10095;</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Progresul Hălmagiu. Toate drepturile rezervate.</p>
+  </footer>
+
+  <script>
+    const images = Array.from(document.querySelectorAll('.galerie-grid img'));
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    const closeBtn = lightbox.querySelector('.close');
+    const prevBtn = lightbox.querySelector('.prev');
+    const nextBtn = lightbox.querySelector('.next');
+    let currentIndex = 0;
+
+    function showLightbox(index) {
+      currentIndex = index;
+      lightboxImg.src = images[currentIndex].src;
+      lightboxImg.alt = images[currentIndex].alt;
+      lightbox.classList.add('active');
+    }
+
+    images.forEach(img => {
+      img.addEventListener('click', () => showLightbox(parseInt(img.dataset.index)));
+    });
+
+    closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      lightboxImg.src = images[currentIndex].src;
+      lightboxImg.alt = images[currentIndex].alt;
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      lightboxImg.src = images[currentIndex].src;
+      lightboxImg.alt = images[currentIndex].alt;
+    });
+
+    // Close lightbox on outside click
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) lightbox.classList.remove('active');
+    });
+  </script>
 </body>
 </html>
