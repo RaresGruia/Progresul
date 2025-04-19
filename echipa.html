@@ -1,198 +1,181 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Echipă - Progresul Hălmagiu</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Echipă – Progresul Hălmagiu</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .filter-controls {
+      display: flex; flex-wrap: wrap; gap:10px; margin:20px 0;
+    }
+    .filter-controls select,
+    .filter-controls input,
+    .filter-controls button {
+      padding:5px 10px; font-size:1rem;
+    }
+    .jucatori-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+      gap:20px;
+      margin-top:20px;
+    }
+    .jucator-card {
+      border:1px solid #ccc;
+      border-radius:8px;
+      padding:10px;
+      text-align:center;
+      background:#f9f9f9;
+    }
+    .jucator-card img {
+      width:100%; border-radius:6px;
+    }
+    #staff { margin-top:40px; }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Progresul Hălmagiu</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Acasă</a></li>
-                <li><a href="echipa.html">Echipă</a></li>
-                <li><a href="meciuri.html">Meciuri</a></li>
-                <li><a href="galerie.html">Galerie</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <h1>Progresul Hălmagiu</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Acasă</a></li>
+        <li><a href="echipa.html">Echipă</a></li>
+        <li><a href="meciuri.html">Meciuri</a></li>
+        <li><a href="galerie.html">Galerie</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <section id="echipa" class="container">
-        <h2>Echipă</h2>
-        <p>Echipa Progresul Hălmagiu a fost fondată în 2010, reprezentând cu mândrie comuna Hălmagiu în competițiile județene. De-a lungul timpului, am crescut împreună, construind un colectiv unit și pasionat de fotbal.</p>
+  <main class="container">
+    <section id="echipa">
+      <h2>Echipă</h2>
+      <p>Echipa Progresul Hălmagiu a fost fondată în 2010, reprezentând cu mândrie comuna Hălmagiu în competițiile județene.</p>
 
-        <h3>Lotul actual</h3>
-        <div class="jucatori-grid">
-            <div class="jucator-card">
-                <img src="images/jucator1.png" alt="Heredea George Viorel">
-                <h4>Heredea George Viorel</h4>
-                <p>Portar</p>
-                <p>Număr tricou: 1</p>
-            </div>
-            <div class="jucator-card">
-                <img src="images/jucator2.png" alt="Pag Radu Adrian">
-                <h4>Pag Radu Adrian</h4>
-                <p>Fundaș</p>
-                <p>Număr tricou: 2</p>
-            </div>
-            <div class="jucator-card">
-                <img src="images/jucator3.png" alt="Petaca Samuel Mario">
-                <h4>Petaca Samuel Mario</h4>
-                <p>Mijlocaș</p>
-                <p>Număr tricou: 3</p>
-            </div>
-            <div class="jucator-card">
-                <img src="images/jucator4.png" alt="Derszi Vladut Florin">
-                <h4>Derszi Vladut Florin</h4>
-                <p>Fundaș</p>
-                <p>Număr tricou: 4</p>
-            </div>
-            <div class="jucator-card">
-                <img src="images/jucator5.png" alt="Achim Adrian Bogdan">
-                <h4>Achim Adrian Bogdan</h4>
-                <p>Mijlocaș</p>
-                <p>Număr tricou: 5</p>
-            </div>
-            <div class="jucator-card">
-                <img src="images/jucator6.png" alt="Cismaș Cristian">
-                <h4>Cismaș Cristian</h4>
-                <p>Fundaș</p>
-                <p>Număr tricou: 6</p>
-            </div>
-            <div class="jucator-card">
-                <img src="images/jucator7.png" alt="Covaci Cristian">
-                <h4>Covaci Cristian</h4>
-                <p>Atacant</p>
-                <p>Număr tricou: 7</p>
-            </div>
-            <div class="jucator-card">
-                <img src="images/jucator8.png" alt="Bulea Marius Ionel">
-                <h4>Bulea Marius Ionel</h4>
-                <p>Mijlocaș</p>
-                <p>Număr tricou: 8</p>
-            </div>
-            <div class="jucator-card">
-                <img src="images/jucator9.png" alt="Tinca Beniamin Dorin">
-                <h4>Tinca Beniamin Dorin</h4>
-                <p>Fundaș</p>
-                <p>Număr tricou: 9</p>
-            </div>
-            <div class="jucator-card">
-                <img src="images/jucator10.png" alt="Torockay Flavius George">
-                <h4>Torockay Flavius George</h4>
-                <p>Atacant</p>
-                <p>Număr tricou: 10</p>
-            </div>
-            <div class="jucator-card">
-                <img src="images/jucator11.png" alt="Deoanca Victor">
-                <h4>Deoanca Victor</h4>
-                <p>Portar</p>
-                <p>Număr tricou: 11</p>
-            </div>
-            <div class="jucator-card">
-                <img src="images/jucator12.png" alt="Cristea George Valentin">
-                <h4>Cristea George Valentin</h4>
-                <p>Fundaș</p>
-                <p>Număr tricou: 12</p>
-            </div>
-            <div class="jucator-card">
-                <img src="images/jucator13.png" alt="Petaca Florin">
-                <h4>Petaca Florin</h4>
-                <p>Mijlocaș</p>
-                <p>Număr tricou: 13</p>
-            </div>
-            <div class="jucator-card">
-                <img src="images/jucator14.png" alt="Farcut Ionut Cristian">
-                <h4>Farcut Ionut Cristian</h4>
-                <p>Atacant</p>
-                <p>Număr tricou: 14</p>
-            </div>
-            <div class="jucator-card">
-                <img src="images/jucator15.png" alt="Ignat Ionut Valentin">
-                <h4>Ignat Ionut Valentin</h4>
-                <p>Fundaș</p>
-                <p>Număr tricou: 15</p>
-            </div>
-            <div class="jucator-card">
-                <img src="images/jucator16.png" alt="Dragos Cosmin Dacian">
-                <h4>Dragos Cosmin Dacian</h4>
-                <p>Mijlocaș</p>
-                <p>Număr tricou: 16</p>
-            </div>
-            <div class="jucator-card">
-                <img src="images/jucator17.png" alt="Gruia Rares">
-                <h4>Gruia Rares</h4>
-                <p>Toate</p>
-                <p>Număr tricou: 17</p>
-            </div>
-            <div class="jucator-card">
-                <img src="images/jucator18.png" alt="Vasii Paul Nicusor">
-                <h4>Vasii Paul Nicusor</h4>
-                <p>Portar</p>
-                <p>Număr tricou: 18</p>
-            </div>
-            <div class="jucator-card">
-                <img src="images/jucator19.png" alt="Betea Valentin Andrei">
-                <h4>Betea Valentin Andrei</h4>
-                <p>Mijlocaș</p>
-                <p>Număr tricou: 19</p>
-            </div>
-            <div class="jucator-card">
-                <img src="images/jucator20.png" alt="Dănăilă Mădălin">
-                <h4>Dănăilă Mădălin</h4>
-                <p>Mijlocaș</p>
-                <p>Număr tricou: 20</p>
-            </div>
-            <div class="jucator-card">
-                <img src="images/jucator21.png" alt="Tat Bogdan">
-                <h4>Tat Bogdan</h4>
-                <p>Atacant</p>
-                <p>Număr tricou: 21</p>
-            </div>
-            <div class="jucator-card">
-                <img src="images/jucator22.png" alt="Petrean Sebastian">
-                <h4>Petrean Sebastian</h4>
-                <p>Fundaș</p>
-                <p>Număr tricou: 22</p>
-            </div>
-            <div class="jucator-card">
-                <img src="images/jucator23.png" alt="Indrieș Sebastian">
-                <h4>Indrieș Sebastian</h4>
-                <p>Atacant</p>
-                <p>Număr tricou: 23</p>
-            </div>
-        </div>
+      <div class="filter-controls">
+        <select id="pozitie-select">
+          <option value="">Toate pozițiile</option>
+          <option value="Portar">Portar</option>
+          <option value="Fundaș">Fundaș</option>
+          <option value="Mijlocaș">Mijlocaș</option>
+          <option value="Atacant">Atacant</option>
+        </select>
+        <select id="sort-select">
+          <option value="asc">Tricou crescător</option>
+          <option value="desc">Tricou descrescător</option>
+        </select>
+        <input id="search-input" type="text" placeholder="Caută după nume…" />
+        <button id="reset-button">Reset</button>
+      </div>
 
-        <h3>Staff Tehnic</h3>
-        <div class="jucatori-grid">
-            <div class="jucator-card">
-                <img src="images/antrenor1.png" alt="Antrenor Principal">
-                <h4>Dărău Mircea</h4>
-                <p><strong>Antrenor Principal</strong></p>
-            </div>
-            <div class="jucator-card">
-                <img src="images/antrenor2.png" alt="Antrenor Secund">
-                <h4>Nelu Sămânța</h4>
-                <p><strong>Antrenor Secund</strong></p>
-            </div>
-            <div class="jucator-card">
-                <img src="images/preparator.png" alt="Preparator fizic">
-                <h4>Dărău Vlad</h4>
-                <p><strong>Preparator Fizic</strong></p>
-            </div>
-            <div class="jucator-card">
-                <img src="images/manager.png" alt="Manager General">
-                <h4>Sbârcea Traian</h4>
-                <p><strong>Manager General</strong></p>
-            </div>
-        </div>
+      <h3>Lotul actual</h3>
+      <div id="jucatori" class="jucatori-grid"></div>
     </section>
-    
-    <footer>
-        <p>&copy; 2025 Progresul Hălmagiu. Toate drepturile rezervate.</p>
-    </footer>
+
+    <section id="staff">
+      <h3>Staff Tehnic</h3>
+      <div class="jucatori-grid">
+        <div class="jucator-card">
+          <img src="images/antrenor1.png" alt="Antrenor Principal"/>
+          <h4>Dărău Mircea</h4>
+          <p><strong>Antrenor Principal</strong></p>
+        </div>
+        <div class="jucator-card">
+          <img src="images/antrenor2.png" alt="Antrenor Secund"/>
+          <h4>Țîșca Nelu</h4>
+          <p><strong>Antrenor Secund</strong></p>
+        </div>
+        <div class="jucator-card">
+          <img src="images/preparator.png" alt="Preparator fizic"/>
+          <h4>Dărău Vlad</h4>
+          <p><strong>Preparator Fizic</strong></p>
+        </div>
+        <div class="jucator-card">
+          <img src="images/manager.png" alt="Manager General"/>
+          <h4>Sbârcea Traian</h4>
+          <p><strong>Manager General</strong></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Progresul Hălmagiu. Toate drepturile rezervate.</p>
+  </footer>
+
+  <script>
+    const players = [
+      { name: 'Gruia Rares', position: 'Toate', numar: 1, img: 'images/jucator17.png' },
+      { name: 'Pag Radu Adrian', position: 'Fundaș', numar: 2, img: 'images/jucator2.png' },
+      { name: 'Petaca Samuel Mario', position: 'Mijlocaș', numar: 3, img: 'images/jucator3.png' },
+      { name: 'Derszi Vladut Florin', position: 'Fundaș', numar: 4, img: 'images/jucator4.png' },
+      { name: 'Achim Adrian Bogdan', position: 'Mijlocaș', numar: 5, img: 'images/jucator5.png' },
+      { name: 'Cismaș Cristian', position: 'Fundaș', numar: 6, img: 'images/jucator6.png' },
+      { name: 'Covaci Cristian', position: 'Atacant', numar: 7, img: 'images/jucator7.png' },
+      { name: 'Bulea Marius Ionel', position: 'Mijlocaș', numar: 8, img: 'images/jucator8.png' },
+      { name: 'Tinca Beniamin Dorin', position: 'Fundaș', numar: 9, img: 'images/jucator9.png' },
+      { name: 'Torockay Flavius George', position: 'Atacant', numar: 10, img: 'images/jucator10.png' },
+      { name: 'Deoanca Victor', position: 'Portar', numar: 11, img: 'images/jucator11.png' },
+      { name: 'Cristea George Valentin', position: 'Fundaș', numar: 12, img: 'images/jucator12.png' },
+      { name: 'Petaca Florin', position: 'Mijlocaș', numar: 13, img: 'images/jucator13.png' },
+      { name: 'Farcut Ionut Cristian', position: 'Atacant', numar: 14, img: 'images/jucator14.png' },
+      { name: 'Ignat Ionut Valentin', position: 'Fundaș', numar: 15, img: 'images/jucator15.png' },
+      { name: 'Dragos Cosmin Dacian', position: 'Mijlocaș', numar: 16, img: 'images/jucator16.png' },
+      { name: 'Heredea George Viorel', position: 'Portar', numar: 17, img: 'images/jucator1.png' },
+      { name: 'Vasii Paul Nicusor', position: 'Portar', numar: 18, img: 'images/jucator18.png' },
+      { name: 'Betea Valentin Andrei', position: 'Mijlocaș', numar: 19, img: 'images/jucator19.png' },
+      { name: 'Dănăilă Mădălin', position: 'Mijlocaș', numar: 20, img: 'images/jucator20.png' },
+      { name: 'Tat Bogdan', position: 'Atacant', numar: 21, img: 'images/jucator21.png' },
+      { name: 'Petrean Sebastian', position: 'Fundaș', numar: 22, img: 'images/jucator22.png' },
+      { name: 'Indrieș Sebastian', position: 'Atacant', numar: 23, img: 'images/jucator23.png' }
+    ];
+
+    const container = document.getElementById('jucatori');
+    const pozSelect = document.getElementById('pozitie-select');
+    const sortSelect = document.getElementById('sort-select');
+    const searchInput = document.getElementById('search-input');
+    const resetBtn = document.getElementById('reset-button');
+
+    function renderPlayers() {
+      let list = players.slice();
+
+      // filtrează poziție
+      if (pozSelect.value) {
+        list = list.filter(p => p.position === pozSelect.value);
+      }
+      // căutare
+      const q = searchInput.value.toLowerCase();
+      if (q) {
+        list = list.filter(p => p.name.toLowerCase().includes(q));
+      }
+      // sort
+      if (sortSelect.value === 'asc') {
+        list.sort((a,b)=>a.numar-b.numar);
+      } else if (sortSelect.value==='desc') {
+        list.sort((a,b)=>b.numar-a.numar);
+      }
+
+      container.innerHTML = list.map(p=>`
+        <div class="jucator-card">
+          <img src="${p.img}" alt="${p.name}"/>
+          <h4>${p.name}</h4>
+          <p>${p.position}</p>
+          <p>Număr tricou: ${p.numar}</p>
+        </div>
+      `).join('');
+    }
+
+    pozSelect.addEventListener('change', renderPlayers);
+    sortSelect.addEventListener('change', renderPlayers);
+    searchInput.addEventListener('input', renderPlayers);
+    resetBtn.addEventListener('click',()=>{
+      pozSelect.value = '';
+      sortSelect.value = 'asc';
+      searchInput.value = '';
+      renderPlayers();
+    });
+
+    window.addEventListener('DOMContentLoaded', renderPlayers);
+  </script>
 </body>
 </html>
