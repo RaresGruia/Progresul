@@ -6,38 +6,27 @@
     <title>Progresul Hălmagiu</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Meniu mobil */
+        /* Stiluri doar pentru meniu mobil */
         .hamburger {
             display: none;
             font-size: 28px;
             background: none;
             border: none;
             cursor: pointer;
-            color: #333;
-        }
-
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 20px;
         }
 
         @media (max-width: 768px) {
-            nav {
-                position: relative;
-            }
-
             nav ul {
                 display: none;
                 flex-direction: column;
-                background-color: #fff;
+                background-color: #4400ff;
                 position: absolute;
-                top: 100%;
+                top: 70px;
                 left: 0;
                 width: 100%;
-                z-index: 1000;
+                z-index: 999;
+                padding: 0;
+                margin: 0;
                 border-top: 1px solid #ccc;
             }
 
@@ -47,18 +36,16 @@
 
             .hamburger {
                 display: block;
-                position: absolute;
-                right: 10px;
-                top: 15px;
-                z-index: 1100;
+            }
+
+            nav ul li {
+                border-bottom: 1px solid #eee;
+                text-align: center;
             }
 
             nav ul li a {
-                padding: 15px;
                 display: block;
-                color: #000;
-                text-decoration: none;
-                border-bottom: 1px solid #eee;
+                padding: 15px;
             }
         }
     </style>
@@ -82,7 +69,7 @@
         </nav>
     </header>
 
-    <!-- Conținutul paginii -->
+    <!-- Banner principal -->
     <section id="banner">
         <img src="images/stadion.jpg" alt="Stadionul Progresul Hălmagiu">
         <div class="banner-text">
@@ -92,12 +79,14 @@
         </div>
     </section>
 
+    <!-- Secțiunea Susține Echipa -->
     <section id="sustine">
         <h2>Susține Progresul Hălmagiu!</h2>
         <p>Hai să fim împreună alături de echipa noastră! Urmărește meciurile, susține echipa și participă activ în comunitate.</p>
         <a href="contact.html" class="btn">Contactează-ne</a>
     </section>
 
+    <!-- Galerie imagini -->
     <section id="galerie">
         <h2>Momente de neuitat</h2>
         <div class="galerie-container">
@@ -107,11 +96,12 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2025 Progresul Hălmagiu. Toate drepturile rezervate.</p>
     </footer>
 
-    <!-- Script pentru meniu -->
+    <!-- Script pentru meniu mobil -->
     <script>
         const hamburger = document.querySelector('.hamburger');
         const navList = document.querySelector('nav ul');
