@@ -6,6 +6,65 @@
   <title>Echipă – Progresul Hălmagiu</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
+    /* Stiluri meniu responsive */
+    nav ul {
+      display: flex;
+      gap: 15px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      background: #000;
+      height: 3px;
+      margin: 4px 0;
+      width: 25px;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #4400ff;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        padding: 0;
+        margin: 0;
+        border-top: 1px solid #ccc;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      nav ul li {
+        border-bottom: 1px solid #eee;
+        text-align: center;
+      }
+
+      nav ul li a {
+        display: block;
+        padding: 15px;
+        color: white;
+        text-decoration: none;
+      }
+    }
+
+    /* Stiluri specifice paginii echipa */
     .filter-controls {
       display: flex; flex-wrap: wrap; gap:10px; margin:20px 0;
     }
@@ -36,8 +95,16 @@
 <body>
   <header>
     <h1>Progresul Hălmagiu</h1>
+
+    <!-- Buton hamburger -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
     <nav>
-      <ul>
+      <ul id="nav-list">
         <li><a href="index.html">Acasă</a></li>
         <li><a href="echipa.html">Echipă</a></li>
         <li><a href="meciuri.html">Meciuri</a></li>
@@ -104,6 +171,10 @@
   </footer>
 
   <script>
+    function toggleMenu() {
+      document.getElementById("nav-list").classList.toggle("show");
+    }
+
     const players = [
       { name: 'Gruia Rares', position: 'Toate', numar: 1, img: 'images/jucator17.png' },
       { name: 'Pag Radu Adrian', position: 'Fundaș', numar: 2, img: 'images/jucator2.png' },
@@ -139,16 +210,15 @@
     function renderPlayers() {
       let list = players.slice();
 
-      // filtrează poziție
       if (pozSelect.value) {
         list = list.filter(p => p.position === pozSelect.value);
       }
-      // căutare
+
       const q = searchInput.value.toLowerCase();
       if (q) {
         list = list.filter(p => p.name.toLowerCase().includes(q));
       }
-      // sort
+
       if (sortSelect.value === 'asc') {
         list.sort((a,b)=>a.numar-b.numar);
       } else if (sortSelect.value==='desc') {
