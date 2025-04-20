@@ -5,6 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Progresul Hălmagiu</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Stiluri doar pentru meniu mobil */
+        .hamburger {
+            display: none;
+            font-size: 28px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                background-color: #fff;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                z-index: 999;
+                padding: 0;
+                margin: 0;
+                border-top: 1px solid #ccc;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            nav ul li {
+                border-bottom: 1px solid #eee;
+                text-align: center;
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Meniu de navigare -->
@@ -14,6 +58,7 @@
         </div>
         <h1>Progresul Hălmagiu</h1>
         <nav>
+            <button class="hamburger" aria-label="Deschide meniul">&#9776;</button>
             <ul>
                 <li><a href="index.html">Acasă</a></li>
                 <li><a href="echipa.html">Echipă</a></li>
@@ -55,5 +100,15 @@
     <footer>
         <p>&copy; 2025 Progresul Hălmagiu. Toate drepturile rezervate.</p>
     </footer>
+
+    <!-- Script pentru meniu mobil -->
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navList = document.querySelector('nav ul');
+
+        hamburger.addEventListener('click', () => {
+            navList.classList.toggle('show');
+        });
+    </script>
 </body>
 </html>
