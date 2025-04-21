@@ -6,6 +6,41 @@
   <title>Galerie - Progresul Hălmagiu</title>
   <link rel="stylesheet" href="styles.css">
   <style>
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #1e3a8a;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        padding: 0;
+        margin: 0;
+        border-top: 1px solid #ccc;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      nav ul li {
+        border-bottom: 1px solid #eee;
+        text-align: center;
+      }
+
+      nav ul li a {
+        display: block;
+        padding: 15px;
+        color: white;
+        text-decoration: none;
+ }
+}
     /* Galerie Grid */
     .galerie-grid {
       display: grid;
