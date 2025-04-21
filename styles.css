@@ -62,28 +62,51 @@ footer {
 }
 
 /* Responsivitate - Folosirea Media Queries pentru a face site-ul responsive */
-@media (max-width: 768px) {
-    header {
-        padding: 10px;
-    }
+/* Mobile Styles */
+@media (max-width: 800px) {
+	.navbar_outer {
+		min-width: unset; /* Remove fixed min-width */
+	}
 
-    nav ul {
-        padding: 5px;
-    }
+	.hamburger {
+		display: block; /* Show hamburger on mobile */
+	}
 
-    nav ul li {
-        display: block;
-        margin: 5px 0;
-    }
+	.navbar_inner_right {
+		display: flex; /* Keep flex for layout */
+		flex-direction: column;
+		position: absolute;
+		top: 60px; /* Adjust based on navbar height */
+		left: 6px;
+		width: 95%;
+		margin: auto;
+		background-color: rgb(230, 177, 63);
+		border-radius: 10px;
+		padding: 5px; /* Reduced padding */
+		z-index: 1000;
+		visibility: hidden; /* Hide initially */
+		opacity: 0; /* Start fully transparent */
+		transition:
+			opacity 0.3s ease,
+			visibility 0.3s ease;
+	}
 
-    section {
-        padding: 20px;
-    }
+	.navbar_inner_right.open {
+		visibility: visible; /* Make visible */
+		opacity: 1; /* Fully opaque */
+	}
 
-    footer {
-        padding: 8px;
-    }
+	a.button {
+		width: 95%;
+		text-align: center;
+		margin: auto;
+		margin-bottom: 5px;
+		margin-top: 5px;
+		padding: 8px;
+		font-size: medium;
+	}
 }
+
 
 /* Stiluri pentru titluri și secțiuni */
 h2 {
