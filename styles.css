@@ -63,50 +63,42 @@ footer {
 
 /* Responsivitate - Folosirea Media Queries pentru a face site-ul responsive */
 /* Mobile Styles */
-@media (max-width: 800px) {
-	.navbar_outer {
-		min-width: unset; /* Remove fixed min-width */
-	}
-
-	.hamburger {
-		display: block; /* Show hamburger on mobile */
-	}
-
-	.navbar_inner_right {
-		display: flex; /* Keep flex for layout */
-		flex-direction: column;
-		position: absolute;
-		top: 60px; /* Adjust based on navbar height */
-		left: 6px;
-		width: 95%;
-		margin: auto;
-		background-color: rgb(230, 177, 63);
-		border-radius: 10px;
-		padding: 5px; /* Reduced padding */
-		z-index: 1000;
-		visibility: hidden; /* Hide initially */
-		opacity: 0; /* Start fully transparent */
-		transition:
-			opacity 0.3s ease,
-			visibility 0.3s ease;
-	}
-
-	.navbar_inner_right.open {
-		visibility: visible; /* Make visible */
-		opacity: 1; /* Fully opaque */
-	}
-
-	a.button {
-		width: 95%;
-		text-align: center;
-		margin: auto;
-		margin-bottom: 5px;
-		margin-top: 5px;
-		padding: 8px;
-		font-size: medium;
-	}
-}
-
+@media (max-width: 768px) {
+    nav ul {
+      display: none;
+      flex-direction: column;
+      background-color: #1e3a8a;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      padding: 0;
+      margin: 0;
+      border-top: 1px solid #ccc;
+    }
+  
+    nav ul.show {
+      display: flex;
+    }
+  
+    .hamburger {
+      display: block;
+    }
+  
+    nav ul li {
+      border-bottom: 1px solid #eee;
+      text-align: center;
+    }
+  
+    nav ul li a {
+      display: block;
+      padding: 15px;
+      color: white;
+      text-decoration: none;
+    }
+  }
+  
 
 /* Stiluri pentru titluri și secțiuni */
 h2 {
