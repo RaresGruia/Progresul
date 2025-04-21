@@ -15,7 +15,50 @@
             cursor: pointer;
         }
 
-        
+        /* Mobile Styles */
+@media (max-width: 800px) {
+	.navbar_outer {
+		min-width: unset; /* Remove fixed min-width */
+	}
+
+	.hamburger {
+		display: block; /* Show hamburger on mobile */
+	}
+
+	.navbar_inner_right {
+		display: flex; /* Keep flex for layout */
+		flex-direction: column;
+		position: absolute;
+		top: 60px; /* Adjust based on navbar height */
+		left: 6px;
+		width: 95%;
+		margin: auto;
+		background-color: rgb(230, 177, 63);
+		border-radius: 10px;
+		padding: 5px; /* Reduced padding */
+		z-index: 1000;
+		visibility: hidden; /* Hide initially */
+		opacity: 0; /* Start fully transparent */
+		transition:
+			opacity 0.3s ease,
+			visibility 0.3s ease;
+	}
+
+	.navbar_inner_right.open {
+		visibility: visible; /* Make visible */
+		opacity: 1; /* Fully opaque */
+	}
+
+	a.button {
+		width: 95%;
+		text-align: center;
+		margin: auto;
+		margin-bottom: 5px;
+		margin-top: 5px;
+		padding: 8px;
+		font-size: medium;
+	}
+}
     </style>
 </head>
 <body>
