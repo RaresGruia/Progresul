@@ -6,12 +6,71 @@
   <title>Meciuri - Progresul Hălmagiu</title>
   <link rel="stylesheet" href="styles.css" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    /* Meniu responsive */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      position: absolute;
+      top: 25px;
+      right: 20px;
+    }
+
+    .hamburger span {
+      background: white;
+      height: 3px;
+      margin: 4px 0;
+      width: 25px;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #1e3a8a;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      nav ul li {
+        text-align: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      nav ul li a {
+        color: white;
+        display: block;
+        padding: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>PROGRESUL HĂLMAGIU</h1>
+
+    <!-- Buton hamburger -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
     <nav>
-      <ul>
+      <ul id="nav-list">
         <li><a href="index.html">Acasă</a></li>
         <li><a href="echipa.html">Echipă</a></li>
         <li><a href="meciuri.html">Meciuri</a></li>
@@ -38,6 +97,10 @@
   </footer>
 
   <script>
+    function toggleMenu() {
+      document.getElementById("nav-list").classList.toggle("show");
+    }
+
     const meciuri = [
       { data: "2025-04-27T17:00", echipe: "ACS Vârfurile vs Progresul Hălmagiu", locatie: "Vârfurile" },
       { data: "2025-05-04T17:00", echipe: "Progresul Hălmagiu vs Unirea Gurahonț", locatie: "Hălmagiu" },
