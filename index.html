@@ -1,82 +1,117 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Progresul Hălmagiu</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="mobile.css" />
-  <style>
-    /* Stiluri de bază pentru meniu */
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background-color: #1e3a8a;
-      padding: 10px 20px;
-      position: relative;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progresul Hălmagiu</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Stiluri doar pentru meniu mobil */
+        .hamburger {
+            display: none;
+            font-size: 28px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 15px;
-      margin: 0;
-      padding: 0;
-    }
+        /* Mobile Styles */
+@media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #1e3a8a;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        padding: 0;
+        margin: 0;
+        border-top: 1px solid #ccc;
+      }
 
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
+      nav ul.show {
+        display: flex;
+      }
 
-    .logo img {
-      height: 50px;
-    }
+      .hamburger {
+        display: flex;
+      }
 
-    .hamburger {
-      display: none;
-      font-size: 28px;
-      background: none;
-      border: none;
-      color: white;
-      cursor: pointer;
-    }
-  </style>
+      nav ul li {
+        border-bottom: 1px solid #eee;
+        text-align: center;
+      }
+
+      nav ul li a {
+        display: block;
+        padding: 15px;
+        color: white;
+        text-decoration: none;
+         }
+    }
+    </style>
 </head>
 <body>
-  <!-- Meniu de navigare -->
-  <header>
-    <div class="logo">
-      <img src="images/sigla.png" alt="Sigla Progresul Hălmagiu" />
-    </div>
-    <h1>Progresul Hălmagiu</h1>
-    <nav>
-      <button class="hamburger" aria-label="Deschide meniul">&#9776;</button>
-      <ul>
-        <li><a href="index.html">Acasă</a></li>
-        <li><a href="echipa.html">Echipă</a></li>
-        <li><a href="meciuri.html">Meciuri</a></li>
-        <li><a href="galerie.html">Galerie</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- Meniu de navigare -->
+    <header>
+        <div class="logo">
+            <img src="images/sigla.png" alt="Sigla Progresul Hălmagiu">
+        </div>
+        <h1>Progresul Hălmagiu</h1>
+        <nav>
+            <button class="hamburger" aria-label="Deschide meniul">&#9776;</button>
+            <ul>
+                <li><a href="index.html">Acasă</a></li>
+                <li><a href="echipa.html">Echipă</a></li>
+                <li><a href="meciuri.html">Meciuri</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <!-- Alte secțiuni aici (banner, galerie etc.) -->
+    <!-- Banner principal -->
+    <section id="banner">
+        <img src="images/stadion.jpg" alt="Stadionul Progresul Hălmagiu">
+        <div class="banner-text">
+            <h2>Bine ați venit pe site-ul oficial al Progresul Hălmagiu!</h2>
+            <p>Aici găsiți cele mai noi informații despre echipa noastră, programul meciurilor și rezultate actualizate.</p>
+            <a href="meciuri.html" class="btn">Vezi programul meciurilor</a>
+        </div>
+    </section>
 
-  <footer>
-    <p>&copy; 2025 Progresul Hălmagiu. Toate drepturile rezervate.</p>
-  </footer>
+    <!-- Secțiunea Susține Echipa -->
+    <section id="sustine">
+        <h2>Susține Progresul Hălmagiu!</h2>
+        <p>Hai să fim împreună alături de echipa noastră! Urmărește meciurile, susține echipa și participă activ în comunitate.</p>
+        <a href="contact.html" class="btn">Contactează-ne</a>
+    </section>
 
-  <script>
-    const hamburger = document.querySelector('.hamburger');
-    const navList = document.querySelector('nav ul');
+    <!-- Galerie imagini -->
+    <section id="galerie">
+        <h2>Momente de neuitat</h2>
+        <div class="galerie-container">
+            <img src="images/echipa1.jpg" alt="Echipa în vestiar">
+            <img src="images/echipa2.jpg" alt="Jucători pe teren">
+            <img src="images/galerie1.png" alt="Fani susținând echipa">
+        </div>
+    </section>
 
-    hamburger.addEventListener('click', () => {
-      navList.classList.toggle('show');
-    });
-  </script>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Progresul Hălmagiu. Toate drepturile rezervate.</p>
+    </footer>
+
+    <!-- Script pentru meniu mobil -->
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navList = document.querySelector('nav ul');
+
+        hamburger.addEventListener('click', () => {
+            navList.classList.toggle('show');
+        });
+    </script>
 </body>
 </html>
