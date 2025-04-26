@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Progresul Hălmagiu</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Stiluri doar pentru meniu mobil */
-        .hamburger {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
-        position: absolute;
-        top: 25px;
-        right: 20px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progresul Hălmagiu</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Meniu responsive */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      position: absolute;
+      top: 25px;
+      right: 20px;
+    }
 
-        /* Mobile Styles */
-@media (max-width: 768px) {
+    .hamburger span {
+      background: white;
+      height: 3px;
+      margin: 4px 0;
+      width: 25px;
+    }
+
+    @media (max-width: 768px) {
       nav ul {
         display: none;
         flex-direction: column;
@@ -26,7 +32,7 @@
         top: 70px;
         left: 0;
         width: 100%;
-        z-index: 999;
+        z-index: 1000;
         padding: 0;
         margin: 0;
         border-top: 1px solid #ccc;
@@ -41,79 +47,83 @@
       }
 
       nav ul li {
-        border-bottom: 1px solid #eee;
         text-align: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
       }
 
       nav ul li a {
-        display: block;
-        padding: 15px;
         color: white;
+        display: block;
+        padding: 10px;
         text-decoration: none;
       }
-}
-
-    </style>
+    }
+  </style>
 </head>
 <body>
-    <!-- Meniu de navigare -->
-    <header>
-        <div class="logo">
-            <img src="images/sigla.png" alt="Sigla Progresul Hălmagiu">
-        </div>
-        <h1>Progresul Hălmagiu</h1>
-        <nav>
-            <button class="hamburger" aria-label="Deschide meniul">&#9776;</button>
-            <ul>
-                <li><a href="index.html">Acasă</a></li>
-                <li><a href="echipa.html">Echipă</a></li>
-                <li><a href="meciuri.html">Meciuri</a></li>
-                <li><a href="galerie.html">Galerie</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Meniu de navigare -->
+  <header>
+    <div class="logo">
+      <img src="images/sigla.png" alt="Sigla Progresul Hălmagiu">
+    </div>
+    <h1>Progresul Hălmagiu</h1>
 
-    <!-- Banner principal -->
-    <section id="banner">
-        <img src="images/stadion.jpg" alt="Stadionul Progresul Hălmagiu">
-        <div class="banner-text">
-            <h2>Bine ați venit pe site-ul oficial al Progresul Hălmagiu!</h2>
-            <p>Aici găsiți cele mai noi informații despre echipa noastră, programul meciurilor și rezultate actualizate.</p>
-            <a href="meciuri.html" class="btn">Vezi programul meciurilor</a>
-        </div>
-    </section>
+    <!-- Buton hamburger -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 
-    <!-- Secțiunea Susține Echipa -->
-    <section id="sustine">
-        <h2>Susține Progresul Hălmagiu!</h2>
-        <p>Hai să fim împreună alături de echipa noastră! Urmărește meciurile, susține echipa și participă activ în comunitate.</p>
-        <a href="contact.html" class="btn">Contactează-ne</a>
-    </section>
+    <nav>
+      <ul id="nav-list">
+        <li><a href="index.html">Acasă</a></li>
+        <li><a href="echipa.html">Echipă</a></li>
+        <li><a href="meciuri.html">Meciuri</a></li>
+        <li><a href="galerie.html">Galerie</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- Galerie imagini -->
-    <section id="galerie">
-        <h2>Momente de neuitat</h2>
-        <div class="galerie-container">
-            <img src="images/echipa1.jpg" alt="Echipa în vestiar">
-            <img src="images/echipa2.jpg" alt="Jucători pe teren">
-            <img src="images/galerie1.png" alt="Fani susținând echipa">
-        </div>
-    </section>
+  <!-- Banner principal -->
+  <section id="banner">
+    <img src="images/stadion.jpg" alt="Stadionul Progresul Hălmagiu">
+    <div class="banner-text">
+      <h2>Bine ați venit pe site-ul oficial al Progresul Hălmagiu!</h2>
+      <p>Aici găsiți cele mai noi informații despre echipa noastră, programul meciurilor și rezultate actualizate.</p>
+      <a href="meciuri.html" class="btn">Vezi programul meciurilor</a>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Progresul Hălmagiu. Toate drepturile rezervate.</p>
-    </footer>
+  <!-- Secțiunea Susține Echipa -->
+  <section id="sustine">
+    <h2>Susține Progresul Hălmagiu!</h2>
+    <p>Hai să fim împreună alături de echipa noastră! Urmărește meciurile, susține echipa și participă activ în comunitate.</p>
+    <a href="contact.html" class="btn">Contactează-ne</a>
+  </section>
 
-    <!-- Script pentru meniu mobil -->
-    <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navList = document.querySelector('nav ul');
+  <!-- Galerie imagini -->
+  <section id="galerie">
+    <h2>Momente de neuitat</h2>
+    <div class="galerie-container">
+      <img src="images/echipa1.jpg" alt="Echipa în vestiar">
+      <img src="images/echipa2.jpg" alt="Jucători pe teren">
+      <img src="images/galerie1.png" alt="Fani susținând echipa">
+    </div>
+  </section>
 
-        hamburger.addEventListener('click', () => {
-            navList.classList.toggle('show');
-        });
-    </script>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Progresul Hălmagiu. Toate drepturile rezervate.</p>
+  </footer>
+
+  <!-- Script pentru meniul mobil -->
+  <script>
+    function toggleMenu() {
+      document.getElementById("nav-list").classList.toggle("show");
+    }
+  </script>
 </body>
 </html>
