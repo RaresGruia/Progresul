@@ -6,41 +6,56 @@
   <title>Galerie - Progresul Hălmagiu</title>
   <link rel="stylesheet" href="styles.css">
   <style>
+    /* Buton hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      position: absolute;
+      top: 25px;
+      right: 20px;
+      z-index: 1001;
+    }
+    .hamburger span {
+      background: #000; /* negru */
+      height: 3px;
+      margin: 4px 0;
+      width: 25px;
+    }
+
+    /* Mobile menu */
     @media (max-width: 768px) {
       nav ul {
         display: none;
         flex-direction: column;
-        background-color: #1e3a8a;
+        background-color: #1e3a8a; /* albastru închis */
         position: absolute;
         top: 70px;
         left: 0;
         width: 100%;
-        z-index: 999;
+        z-index: 1000;
         padding: 0;
         margin: 0;
         border-top: 1px solid #ccc;
       }
-
       nav ul.show {
         display: flex;
       }
-
       .hamburger {
         display: flex;
       }
-
       nav ul li {
         border-bottom: 1px solid #eee;
         text-align: center;
       }
-
       nav ul li a {
         display: block;
         padding: 15px;
         color: white;
         text-decoration: none;
- }
-}
+      }
+    }
+
     /* Galerie Grid */
     .galerie-grid {
       display: grid;
@@ -59,6 +74,7 @@
     .galerie-grid img:hover {
       transform: scale(1.05);
     }
+
     /* Lightbox */
     .lightbox {
       position: fixed;
@@ -68,7 +84,7 @@
       display: none;
       align-items: center;
       justify-content: center;
-      z-index: 1000;
+      z-index: 1002;
     }
     .lightbox.active {
       display: flex;
@@ -109,8 +125,16 @@
 <body>
   <header>
     <h1>Progresul Hălmagiu</h1>
+
+    <!-- Buton hamburger -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
     <nav>
-      <ul>
+      <ul id="nav-list">
         <li><a href="index.html">Acasă</a></li>
         <li><a href="echipa.html">Echipă</a></li>
         <li><a href="meciuri.html">Meciuri</a></li>
@@ -150,6 +174,12 @@
   </footer>
 
   <script>
+    // Toggle mobile menu
+    function toggleMenu() {
+      document.getElementById('nav-list').classList.toggle('show');
+    }
+
+    // Lightbox functionality
     const images = Array.from(document.querySelectorAll('.galerie-grid img'));
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = lightbox.querySelector('img');
@@ -183,7 +213,6 @@
       lightboxImg.alt = images[currentIndex].alt;
     });
 
-    // Close lightbox on outside click
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) lightbox.classList.remove('active');
     });
