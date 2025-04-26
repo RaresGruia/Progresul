@@ -18,7 +18,7 @@
     }
 
     .hamburger span {
-      background: white;
+      background: #000; /* NEGRU */
       height: 3px;
       margin: 4px 0;
       width: 25px;
@@ -28,12 +28,15 @@
       nav ul {
         display: none;
         flex-direction: column;
-        background-color: #1e3a8a;
+        background-color: #1e3a8a; /* Albastru inchis */
         position: absolute;
         top: 70px;
         left: 0;
         width: 100%;
-        z-index: 1000;
+        z-index: 999;
+        padding: 0;
+        margin: 0;
+        border-top: 1px solid #ccc;
       }
 
       nav ul.show {
@@ -45,15 +48,15 @@
       }
 
       nav ul li {
-        text-align: center;
-        padding: 10px 0;
         border-bottom: 1px solid #eee;
+        text-align: center;
       }
 
       nav ul li a {
-        color: white;
         display: block;
-        padding: 10px;
+        padding: 15px;
+        color: white;
+        text-decoration: none;
       }
     }
   </style>
@@ -112,9 +115,7 @@
     ];
 
     const acum = new Date();
-
     const urmator = meciuri.find(meci => new Date(meci.data) > acum);
-
     const container = document.getElementById("urmatorul-meci");
 
     if (urmator) {
