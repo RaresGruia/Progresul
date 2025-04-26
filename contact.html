@@ -3,67 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - Progresul Hălmagiu</title>
+  <title>Contact – Progresul Hălmagiu</title>
   <link rel="stylesheet" href="styles.css">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #1e3a8a;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        z-index: 999;
-        padding: 0;
-        margin: 0;
-        border-top: 1px solid #ccc;
-      }
-
-      nav ul.show {
-        display: flex;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      nav ul li {
-        border-bottom: 1px solid #eee;
-        text-align: center;
-      }
-
-      nav ul li a {
-        display: block;
-        padding: 15px;
-        color: white;
-        text-decoration: none;
-      }
-    }
-
-    /* Stiluri generale */
+    /* Stil general */
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      background: #f4f4f4;
       margin: 0;
       padding: 0;
     }
 
-    /* Header */
     header {
-      background-color: #1e3a8a;
+      background: #1e3a8a;
       color: white;
       padding: 20px 0;
       text-align: center;
+      position: relative;
     }
 
     header h1 {
       margin: 0;
     }
 
-    /* Meniu de navigare */
     nav ul {
       list-style: none;
       padding: 0;
@@ -79,10 +42,56 @@
       font-weight: bold;
     }
 
-    /* Secțiunea contact */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      position: absolute;
+      top: 25px;
+      right: 20px;
+      z-index: 1001;
+    }
+
+    .hamburger span {
+      background: white;
+      height: 3px;
+      margin: 4px 0;
+      width: 25px;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #1e3a8a;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        z-index: 1000;
+      }
+      nav ul.show {
+        display: flex;
+      }
+      nav ul li {
+        border-bottom: 1px solid #eee;
+        text-align: center;
+      }
+      nav ul li a {
+        padding: 15px;
+        display: block;
+        color: white;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
     section#contact {
       padding: 40px 10%;
-      background-color: #fff;
+      background: white;
       margin-top: 20px;
     }
 
@@ -92,7 +101,6 @@
       margin-bottom: 30px;
     }
 
-    /* Formular */
     form {
       display: flex;
       flex-direction: column;
@@ -127,7 +135,6 @@
       background-color: #163172;
     }
 
-    /* Informații de contact */
     .contact-info {
       margin-top: 40px;
       text-align: center;
@@ -138,12 +145,11 @@
       margin: 5px 0;
     }
 
-    /* Harta Google */
     .map-container {
       margin-top: 40px;
-      position: relative;
       height: 400px;
       width: 100%;
+      position: relative;
     }
 
     .map-container iframe {
@@ -152,7 +158,6 @@
       border: 0;
     }
 
-    /* Iconițele rețelelor sociale */
     .social-icons {
       display: flex;
       justify-content: center;
@@ -170,14 +175,29 @@
     .social-icons a:hover {
       color: #163172;
     }
+
+    footer {
+      background: #1e3a8a;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
 
   <header>
     <h1>Progresul Hălmagiu</h1>
+    <!-- Hamburger pentru mobil -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
     <nav>
-      <ul>
+      <ul id="nav-list">
         <li><a href="index.html">Acasă</a></li>
         <li><a href="echipa.html">Echipă</a></li>
         <li><a href="meciuri.html">Meciuri</a></li>
@@ -189,8 +209,7 @@
 
   <section id="contact">
     <h2>Contactează-ne</h2>
-    
-    <!-- Formular de Contact -->
+
     <form action="https://formspree.io/f/xldjqgor" method="POST">
       <input type="text" name="nume" placeholder="Nume" required>
       <input type="email" name="_replyto" placeholder="Email" required>
@@ -199,7 +218,6 @@
       <button type="submit">Trimite Mesaj</button>
     </form>
 
-    <!-- Informații de Contact -->
     <div class="contact-info">
       <h3>Informații de Contact</h3>
       <p><strong>Email:</strong> echipa@progresulhalmagiu.ro</p>
@@ -207,7 +225,6 @@
       <p><strong>Adresă:</strong> Stadion Nicolae Groza, Str. Principală, Hălmagiu, România</p>
     </div>
 
-    <!-- Harta Google -->
     <div class="map-container">
       <iframe
         src="https://www.google.com/maps?q=46.266528,22.597334&z=15&output=embed"
@@ -216,7 +233,6 @@
       </iframe>
     </div>
 
-    <!-- Iconițele Rețelelor Sociale -->
     <div class="social-icons">
       <a href="https://facebook.com/progresulhalmagiu" target="_blank"><i class="fab fa-facebook"></i></a>
       <a href="https://instagram.com/progresulhalmagiu" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -228,6 +244,12 @@
   <footer>
     <p>&copy; 2025 Progresul Hălmagiu. Toate drepturile rezervate.</p>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav-list').classList.toggle('show');
+    }
+  </script>
 
 </body>
 </html>
